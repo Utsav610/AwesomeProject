@@ -290,7 +290,7 @@ const styles = StyleSheet.create({
 
 const cache = new Map<string, any>();
 
-export function getStyles(className: string) {
+export const getStyles = (className: string) => {
   if (cache.has(className)) {
     return cache.get(className);
   }
@@ -339,4 +339,4 @@ export function getStyles(className: string) {
 
   cache.set(className, result);
   return result;
-}
+};

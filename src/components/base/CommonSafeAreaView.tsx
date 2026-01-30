@@ -2,7 +2,7 @@ import React, { FC, memo } from 'react';
 import { SafeAreaView, SafeAreaViewProps, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { getStyles } from '../../styles';
 
-const CommonSafeAreaView: FC<SafeAreaViewProps> = props => {
+export const CommonSafeAreaView: FC<SafeAreaViewProps> = props => {
   const { bottom, top } = useSafeAreaInsets();
   return (
     <SafeAreaView edges={['top', 'bottom']} {...props} style={[getStyles('flex-1'), props.style]}>
@@ -11,4 +11,4 @@ const CommonSafeAreaView: FC<SafeAreaViewProps> = props => {
   );
 };
 
-export default memo(CommonSafeAreaView);
+// export default memo(CommonSafeAreaView);
