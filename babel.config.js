@@ -1,6 +1,9 @@
+const workletsPluginOptions = {};
+
 module.exports = {
   presets: ['module:@react-native/babel-preset'],
   plugins: [
+    ['react-native-worklets/plugin', workletsPluginOptions],
     [
       'module:react-native-dotenv',
       {
@@ -13,9 +16,12 @@ module.exports = {
     [
       'module-resolver',
       {
-        root: ['./src'],
+        root: ['.'],
         alias: {
           '@': './src',
+          '@components': './src/components',
+          '@assets': './src/assets',
+          '@utils': './src/utils',
         },
       },
     ],
