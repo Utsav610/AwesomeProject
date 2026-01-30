@@ -2,7 +2,7 @@ import React from 'react';
 import { Text as RNText, TextProps, TextStyle, StyleProp } from 'react-native';
 import { getStyles } from '../../styles';
 
-const Text: React.FC<TextProps> = ({ style, ...props }) => {
+export const Text: React.FC<TextProps> = ({ style, ...props }) => {
   const appliedStyle: StyleProp<TextStyle> | undefined =
     typeof style === 'string' ? (getStyles(style) as any) : (style as StyleProp<TextStyle>);
 
@@ -18,5 +18,3 @@ const Text: React.FC<TextProps> = ({ style, ...props }) => {
     </RNText>
   );
 };
-
-export default Text;

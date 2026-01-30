@@ -6,7 +6,7 @@ type LoaderProps = {
   visible: boolean;
 };
 
-const Loader: React.FC<LoaderProps> = ({ visible }) => {
+export const Loader: React.FC<LoaderProps> = ({ visible }) => {
   return (
     <>
       {visible ? (
@@ -19,5 +19,3 @@ const Loader: React.FC<LoaderProps> = ({ visible }) => {
     </>
   );
 };
-
-export default memo(Loader);
