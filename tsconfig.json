@@ -10,7 +10,8 @@
       "@utils/*": ["src/utils/*"],
       "@services/*": ["src/services/*"],
       "@navigation/*": ["src/navigation/*"],
-      "@queries/*": ["src/queries/*"]
+      "@queries/*": ["src/queries/*"],
+      "@features/*": ["src/features/*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx"],
