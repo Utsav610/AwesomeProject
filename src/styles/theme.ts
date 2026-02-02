@@ -8,6 +8,8 @@ export const lightColors = {
   muted: '#4B5563',
 
   border: '#E5E7EB',
+
+  overlay: '#000000',
 };
 
 export const darkColors = {
@@ -20,6 +22,8 @@ export const darkColors = {
   muted: '#9CA3AF',
 
   border: '#2A2A2A',
+
+  overlay: '#000000',
 };
 
 export const theme = {
