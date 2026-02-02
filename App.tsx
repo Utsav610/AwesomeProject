@@ -6,7 +6,7 @@ import { queryClient } from '@queries/index';
 import { RootNavigator } from '@navigation/index';
 import { StyleSheet, View } from 'react-native';
 import React from 'react';
-import { CommonSafeAreaView, Text } from '@components/base';
+import { Button, CommonSafeAreaView, Text, TextInputView } from '@components/base';
 import { getStyles } from './src/styles/getStyles';
 
 export default function App() {
@@ -15,11 +15,13 @@ export default function App() {
       <QueryClientProvider client={queryClient}>
         <CommonSafeAreaView>
           <StatusBar barStyle="light-content" />
-          <RootNavigator />
+          {/* <RootNavigator /> */}
           <View>
             <Text style={getStyles('text-2xl font-bold text-center mt-8 text-textSecondary')}>
               Welcome to AwesomeProject!
             </Text>
+            <Button title="Submit" />
+            <TextInputView title="name" value="5" onChangeText={() => {}} />
           </View>
         </CommonSafeAreaView>
       </QueryClientProvider>
