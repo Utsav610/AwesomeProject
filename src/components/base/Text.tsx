@@ -1,20 +1,22 @@
-import React from 'react';
-import { Text as RNText, TextProps, TextStyle, StyleProp } from 'react-native';
-import { getStyles } from '../../styles';
+import { Text as RNText, type TextProps } from 'react-native';
+import { getStyles } from '@/styles/getStyles';
+import { fontFamily, type TextSize, type TextWeight } from '@styles/typography';
+import type { ColorKey } from '@styles/theme';
 
-export const Text: React.FC<TextProps> = ({ style, ...props }) => {
-  const appliedStyle: StyleProp<TextStyle> | undefined =
-    typeof style === 'string' ? (getStyles(style) as any) : (style as StyleProp<TextStyle>);
+export type AppTextProps = TextProps & {
+  size?: TextSize;
+  weight?: TextWeight;
+  color?: ColorKey;
+};
 
-  const finalStyle = appliedStyle
-    ? Array.isArray(appliedStyle)
-      ? appliedStyle
-      : [appliedStyle]
-    : undefined;
+export const Text = ({
+  size = 'base',
+  weight = 'regular',
+  color = 'foreground',
+  style,
+  ...props
+}: AppTextProps) => {
+  const tokenStyle = getStyles(`text-${size} text-${color}`);
 
-  return (
-    <RNText style={finalStyle} {...props}>
-      {props.children}
-    </RNText>
-  );
+  return <RNText {...props} style={[tokenStyle, { fontFamily: fontFamily[weight] }, style]} />;
 };

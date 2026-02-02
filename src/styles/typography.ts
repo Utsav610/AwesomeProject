@@ -1,6 +1,13 @@
 import { fontPixel } from './scale';
 
-export const fontSizes: Record<string, { fontSize: number; lineHeight: number }> = {
+export const fontFamily = {
+  regular: 'IBMPlexSans-Regular',
+  medium: 'IBMPlexSans-Medium',
+  semibold: 'IBMPlexSans-SemiBold',
+  bold: 'IBMPlexSans-Bold',
+} as const;
+
+export const fontSizes = {
   'text-xs': { fontSize: fontPixel(12), lineHeight: fontPixel(16) },
   'text-sm': { fontSize: fontPixel(14), lineHeight: fontPixel(20) },
   'text-base': { fontSize: fontPixel(16), lineHeight: fontPixel(24) },
@@ -8,11 +15,10 @@ export const fontSizes: Record<string, { fontSize: number; lineHeight: number }>
   'text-xl': { fontSize: fontPixel(20), lineHeight: fontPixel(28) },
   'text-2xl': { fontSize: fontPixel(24), lineHeight: fontPixel(32) },
   'text-3xl': { fontSize: fontPixel(28), lineHeight: fontPixel(36) },
-};
+} as const;
 
-export const fontWeights: Record<string, number> = {
-  'font-regular': 400,
-  'font-medium': 500,
-  'font-semibold': 600,
-  'font-bold': 700,
-};
+/* ---------- Types (derived) ---------- */
+
+export type TextSize = 'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl' | '3xl';
+
+export type TextWeight = keyof typeof fontFamily;
