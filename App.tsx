@@ -6,7 +6,7 @@ import { queryClient } from '@queries/index';
 import { RootNavigator } from '@navigation/index';
 import { StyleSheet, View } from 'react-native';
 import React from 'react';
-import { Button, CommonSafeAreaView, Text, TextInputView } from '@components/base';
+import { Button, CommonSafeAreaView, Text, TextInput } from '@components/base';
 import { getStyles } from './src/styles/getStyles';
 
 export default function App() {
@@ -21,7 +21,7 @@ export default function App() {
               Welcome to AwesomeProject!
             </Text>
             <Button title="Submit" />
-            <TextInputView title="name" value="5" onChangeText={() => {}} />
+            <TextInput label="name" value="5" onChangeText={() => {}} />
           </View>
         </CommonSafeAreaView>
       </QueryClientProvider>
