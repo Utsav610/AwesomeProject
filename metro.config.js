@@ -17,6 +17,7 @@ const config = {
       '@services': path.resolve(__dirname, 'src/services'),
       '@navigation': path.resolve(__dirname, 'src/navigation'),
       '@queries': path.resolve(__dirname, 'src/queries'),
+      '@styles': path.resolve(__dirname, 'src/styles'),
     },
   },
 };

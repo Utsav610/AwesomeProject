@@ -26,6 +26,7 @@ module.exports = {
           '@navigation': './src/navigation',
           '@queries': './src/queries',
           '@features': './src/features',
+          '@styles': './src/styles',
         },
       },
     ],
