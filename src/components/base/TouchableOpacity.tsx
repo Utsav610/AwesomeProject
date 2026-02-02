@@ -1,26 +1,17 @@
 import React, { forwardRef, memo } from 'react';
 import {
-  TouchableOpacity as BaseTouchableOpacity,
-  TouchableOpacityProps as BaseTouchableOpacityProps,
+  TouchableOpacity as RNTouchOpacity,
+  TouchableOpacityProps as RNTouchOpacityProps,
 } from 'react-native';
-import Animated, { AnimatedProps } from 'react-native-reanimated';
 
-const AnimatedTouchableOpacity = Animated.createAnimatedComponent(BaseTouchableOpacity);
+export interface TouchableOpacityProps extends RNTouchOpacityProps {}
 
-export interface TouchableOpacityProps extends AnimatedProps<BaseTouchableOpacityProps> {}
-
-export const TouchableOpacity = forwardRef<BaseTouchableOpacity, TouchableOpacityProps>(
-  (props, ref) => {
+export const TouchableOpacity = memo(
+  forwardRef<React.ElementRef<typeof RNTouchOpacity>, TouchableOpacityProps>((props, ref) => {
     return (
-      <AnimatedTouchableOpacity
-        ref={ref}
-        delayPressIn={0}
-        activeOpacity={0.5}
-        hitSlop={20}
-        {...props}
-      >
+      <RNTouchOpacity ref={ref} delayPressIn={0} activeOpacity={0.5} hitSlop={20} {...props}>
         {props.children}
-      </AnimatedTouchableOpacity>
+      </RNTouchOpacity>
     );
-  },
+  }),
 );

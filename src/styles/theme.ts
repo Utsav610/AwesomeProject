@@ -10,6 +10,7 @@ export const lightColors = {
   border: '#E5E7EB',
 
   overlay: '#000000',
+  error: '#DC2626',
 };
 
 export const darkColors = {
@@ -24,6 +25,7 @@ export const darkColors = {
   border: '#2A2A2A',
 
   overlay: '#000000',
+  error: '#DC2626',
 };
 
 export const theme = {
