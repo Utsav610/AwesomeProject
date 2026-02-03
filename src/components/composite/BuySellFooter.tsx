@@ -12,12 +12,8 @@ export type ButtonProps = {
 };
 
 export const BuySellFooter: FC = ({ onBuyPress, onSellPress, onAlertPress }: ButtonProps) => {
-  const containerStyle = getStyles(
-    'flex-row px-12 py-16 gap-4 bg-background border-t border-border',
-  );
-
   return (
-    <View style={containerStyle}>
+    <View style={getStyles('flex-row px-12 py-16 gap-4 bg-background border-t border-border')}>
       <Pressable
         onPress={onAlertPress}
         style={getStyles(

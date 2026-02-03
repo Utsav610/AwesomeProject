@@ -1,4 +1,10 @@
-import { ActivityIndicator, Pressable, type PressableProps, type ViewStyle } from 'react-native';
+import {
+  ActivityIndicator,
+  Pressable,
+  StyleSheet,
+  type PressableProps,
+  type ViewStyle,
+} from 'react-native';
 
 import { getStyles } from '@/styles/getStyles';
 import { Text } from './Text';
@@ -64,7 +70,7 @@ export const Button = ({
   return (
     <Pressable
       disabled={disabled || isLoading}
-      style={[containerStyle, style as ViewStyle]}
+      style={StyleSheet.flatten([containerStyle, style as ViewStyle])}
       onPress={onPress}
       {...props}
     >

@@ -5,6 +5,7 @@ import {
   type StyleProp,
   type ViewStyle,
   type TextStyle,
+  StyleSheet,
 } from 'react-native';
 
 import { getStyles, theme } from '@/styles';
@@ -74,10 +75,10 @@ export const TextInput: FC<InputProps> = ({
       )}
 
       <View
-        style={[
+        style={StyleSheet.flatten([
           getStyles(`flex-row items-center px-12 py-8 rounded-4 border-1 bg-surface ${stateClass}`),
           containerStyle,
-        ]}
+        ])}
       >
         {leftComponent}
 
@@ -88,7 +89,7 @@ export const TextInput: FC<InputProps> = ({
           onChangeText={onChangeText}
           onFocus={handleFocus}
           onBlur={handleBlur}
-          style={[getStyles('flex-1 text-base text-foreground'), inputStyle]}
+          style={StyleSheet.flatten([getStyles('flex-1 text-base text-foreground'), inputStyle])}
           placeholderTextColor={theme.colors.muted}
         />
 
