@@ -20,7 +20,9 @@ export const BuySellFooter: FC = ({ onBuyPress, onSellPress, onAlertPress }: But
     <View style={containerStyle}>
       <Pressable
         onPress={onAlertPress}
-        style={getStyles('flex-row px-16 py-12 rounded-lg justify-center items-center')}
+        style={getStyles(
+          'flex-row px-16 py-10 gap-4 rounded-lg justify-center items-center border-2 rounded-full',
+        )}
       >
         <AlertIcon />
         <Text weight="semibold" size="base">
@@ -28,8 +30,16 @@ export const BuySellFooter: FC = ({ onBuyPress, onSellPress, onAlertPress }: But
         </Text>
       </Pressable>
 
-      <Button title="SELL" style={getStyles('flex-1')} onPress={onSellPress} />
-      <Button title="BUY" style={getStyles('flex-1')} onPress={onBuyPress} />
+      <Button
+        title="SELL"
+        style={getStyles('flex-1 py-10 rounded-full bg-sell')}
+        onPress={onSellPress}
+      />
+      <Button
+        title="BUY"
+        style={getStyles('flex-1 py-10 rounded-full bg-buy')}
+        onPress={onBuyPress}
+      />
     </View>
   );
 };

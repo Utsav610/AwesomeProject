@@ -1,6 +1,7 @@
-import { Pressable, type PressableProps, type ViewStyle } from 'react-native';
+import { ActivityIndicator, Pressable, type PressableProps, type ViewStyle } from 'react-native';
 import { getStyles } from '@/styles/getStyles';
 import { Text } from './Text';
+import { theme } from '@/styles';
 
 type ButtonVariant = 'primary' | 'secondary';
 
@@ -9,6 +10,9 @@ export type ButtonProps = PressableProps & {
   variant?: ButtonVariant;
   fullWidth?: boolean;
   onPress?: () => void;
+  isLoading?: boolean;
+  disabled?: boolean;
+  loaderColor?: string;
 };
 
 const VARIANT_STYLES: Record<ButtonVariant, string> = {
@@ -22,7 +26,9 @@ export const Button = ({
   disabled,
   fullWidth,
   style,
+  isLoading = false,
   onPress,
+  loaderColor = theme.colors.surface,
   ...props
 }: ButtonProps) => {
   const baseStyle = 'px-16 py-12 rounded-lg justify-center items-center';
@@ -34,12 +40,19 @@ export const Button = ({
   );
 
   return (
-    <Pressable disabled={disabled} style={[containerStyle, style as ViewStyle]} {...props}
+    <Pressable
+      disabled={disabled}
+      style={[containerStyle, style as ViewStyle]}
+      {...props}
       onPress={onPress}
     >
-      <Text weight="semibold" size="base">
-        {title}
-      </Text>
+      {isLoading ? (
+        <ActivityIndicator size={'small'} color={loaderColor} />
+      ) : (
+        <Text weight="semibold" size="base">
+          {title}
+        </Text>
+      )}
     </Pressable>
   );
 };
