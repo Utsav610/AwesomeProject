@@ -28,7 +28,8 @@ export const Toggle: FC<ToggleProps> = ({ value, onChange, disabled = false }) =
 
   return (
     <Pressable
-      onPress={() => !disabled && onChange(!value)}
+      disabled={disabled}
+      onPress={() => onChange(!value)}
       style={[
         getStyles(`w-44 h-24 rounded-full justify-center ${trackClass}`),
         disabled && getStyles('opacity-50'),
