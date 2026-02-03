@@ -1,4 +1,10 @@
-import { ActivityIndicator, Pressable, type PressableProps, type ViewStyle } from 'react-native';
+import {
+  ActivityIndicator,
+  Pressable,
+  TextStyle,
+  type PressableProps,
+  type ViewStyle,
+} from 'react-native';
 import { getStyles } from '@/styles/getStyles';
 import { Text } from './Text';
 import { theme } from '@/styles';
