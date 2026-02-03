@@ -59,17 +59,17 @@ export const TextInput: FC<InputProps> = ({
   };
 
   const stateClass = !editable
-    ? 'bg-muted border-border'
+    ? 'bg-disabledLabel border-outlineDefault'
     : errorText
-    ? 'border-error'
+    ? 'border-loss'
     : isFocused
-    ? 'border-primary'
-    : 'border-border';
+    ? 'border-outlineSelected'
+    : 'border-outlineDefault';
 
   return (
     <View>
       {label && (
-        <Text size="sm" weight="medium" color="foreground">
+        <Text size="sm" weight="medium" color="primary">
           {label}
         </Text>
       )}
@@ -90,14 +90,14 @@ export const TextInput: FC<InputProps> = ({
           onFocus={handleFocus}
           onBlur={handleBlur}
           style={StyleSheet.flatten([getStyles('flex-1 text-base text-foreground'), inputStyle])}
-          placeholderTextColor={theme.colors.muted}
+          placeholderTextColor={theme.colors.secondary}
         />
 
         {rightComponent}
       </View>
 
       {errorText && (
-        <Text size="xs" color="error">
+        <Text size="xs" color="loss">
           {errorText}
         </Text>
       )}
