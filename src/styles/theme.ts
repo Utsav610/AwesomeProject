@@ -1,35 +1,58 @@
 export const lightColors = {
-  primary: '#3B82F6',
+  /* ===== TEXT ===== */
+  bodyDark: '#FFFFFF',
+  selectedText: '#330133',
+  loss: '#CC3F29',
+  profit: '#0E9024',
+  onBackground: '#292226',
+  bodyLight: '#292226',
+  textTabSelected: '#292226',
+  textTabActive: '#333232',
+  radioSelected: '#292226',
+  radioUnselected: '#333232',
+  textSecondary: '#66525C',
 
-  background: '#FFFFFF',
-  surface: '#F5F5F5',
+  /* ===== LABEL ===== */
+  onBuy: '#033803',
+  sellCTA: '#CC3F29',
+  sell: '#4D1E17',
+  active: '#333232',
+  focussed: '#292226',
+  disabledLabel: '#B2AEB0',
+  labelSecondary: '#737071',
+  event: '#008DFF',
+  openOrder: '#C56800',
 
-  foreground: '#000000',
-  muted: '#4B5563',
+  /* ===== BACKGROUND ===== */
+  sellButton: '#FC644C',
+  buyButton: '#51D467',
+  neutralButtonDark: '#352F32',
+  neutralButtonLight: '#FAF5FA',
+  successVariant: '#0E9024',
+  backgroundDefault: '#FCFCFC',
+  backgroundLight: '#FAFAFA',
+  backgroundDisabled: '#E5E3E5',
+  backgroundSelected: '#FFF2FF',
+  otm: '#FCFCFC',
+  itm: '#FEFBF1',
 
-  border: '#E5E7EB',
+  /* ===== OUTLINE ===== */
+  outlineDefault: '#E0DCE0',
+  outlineVariant: '#DDDDDD',
+  outlineSelected: '#330133',
 
-  overlay: '#000000',
-  error: '#DC2626',
-  buy: '#22C55E',
-  sell: '#FF5252',
+  /* ===== SCHEMES ===== */
+  primary: '#E516E5',
+  onPrimaryContainer: '#970097',
+  secondary: '#645A70',
+  onSecondary: '#FFFFFF',
+
+  /* ===== ORDERS ===== */
+  orderOpen: '#CC8800',
 };
 
 export const darkColors = {
-  primary: '#3B82F6',
-
-  background: '#0B0B0B',
-  surface: '#1A1A1A',
-
-  foreground: '#FFFFFF',
-  muted: '#9CA3AF',
-
-  border: '#2A2A2A',
-
-  overlay: '#000000',
-  error: '#DC2626',
-  buy: '#22C55E',
-  sell: '#FF5252',
+  ...lightColors, // for now same as light
 };
 
 export const theme = {
