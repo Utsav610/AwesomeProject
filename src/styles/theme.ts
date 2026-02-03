@@ -11,6 +11,8 @@ export const lightColors = {
 
   overlay: '#000000',
   error: '#DC2626',
+  buy: '#22C55E',
+  sell: '#FF5252',
 };
 
 export const darkColors = {
@@ -26,6 +28,8 @@ export const darkColors = {
 
   overlay: '#000000',
   error: '#DC2626',
+  buy: '#22C55E',
+  sell: '#FF5252',
 };
 
 export const theme = {

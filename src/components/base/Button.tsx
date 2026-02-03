@@ -8,6 +8,7 @@ export type ButtonProps = PressableProps & {
   title: string;
   variant?: ButtonVariant;
   fullWidth?: boolean;
+  onPress?: () => void;
 };
 
 const VARIANT_STYLES: Record<ButtonVariant, string> = {
@@ -21,6 +22,7 @@ export const Button = ({
   disabled,
   fullWidth,
   style,
+  onPress,
   ...props
 }: ButtonProps) => {
   const baseStyle = 'px-16 py-12 rounded-lg justify-center items-center';
@@ -32,7 +34,9 @@ export const Button = ({
   );
 
   return (
-    <Pressable disabled={disabled} style={[containerStyle, style as ViewStyle]} {...props}>
+    <Pressable disabled={disabled} style={[containerStyle, style as ViewStyle]} {...props}
+      onPress={onPress}
+    >
       <Text weight="semibold" size="base">
         {title}
       </Text>

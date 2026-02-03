@@ -8,6 +8,7 @@ import { StyleSheet, View } from 'react-native';
 import React from 'react';
 import { Button, CommonSafeAreaView, Text, TextInput } from '@components/base';
 import { getStyles } from './src/styles/getStyles';
+import { BuySellFooter } from '@/components/composite/BuySellFooter';
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
             </Text>
             <Button title="Submit" />
             <TextInput label="name" value="5" onChangeText={() => {}} />
+            <BuySellFooter />
           </View>
         </CommonSafeAreaView>
       </QueryClientProvider>
