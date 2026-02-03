@@ -12,7 +12,7 @@ export type AppTextProps = TextProps & {
 export const Text = ({
   size = 'base',
   weight = 'regular',
-  color = 'foreground',
+  color = 'primary',
   style,
   ...props
 }: AppTextProps) => {
