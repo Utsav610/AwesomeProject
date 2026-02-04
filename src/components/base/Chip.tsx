@@ -1,13 +1,14 @@
 import { Pressable, type PressableProps, type ViewStyle } from 'react-native';
 import { getStyles } from '@styles/getStyles';
 import { Text } from '@components/base';
+import { FC } from 'react';
 
 export type ChipProps = PressableProps & {
   label: string;
   selected?: boolean;
 };
 
-export const Chip = ({ label, selected = false, style, ...props }: ChipProps) => {
+export const Chip: FC<ChipProps> = ({ label, selected = false, style, ...props }) => {
   const stateStyle = selected
     ? 'bg-backgroundSelected border-outlineSelected'
     : 'bg-neutralButtonLight border-outlineDefault';
