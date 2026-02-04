@@ -27,6 +27,7 @@ module.exports = {
           '@queries': './src/queries',
           '@features': './src/features',
           '@styles': './src/styles',
+          '@locales': './src/locales',
         },
       },
     ],

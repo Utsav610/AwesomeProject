@@ -4,6 +4,7 @@ import { Button } from '@components/base';
 import { getStyles } from '@/styles/getStyles';
 import { Text } from '@components/base';
 import { AlertIcon } from '@/assets/icons';
+import { locale } from '@locales/index';
 
 export type ButtonProps = {
   onBuyPress?: () => void;
@@ -22,17 +23,17 @@ export const BuySellFooter: FC = ({ onBuyPress, onSellPress, onAlertPress }: But
       >
         <AlertIcon />
         <Text weight="semibold" size="base">
-          Alert
+          {locale?.common?.alert}
         </Text>
       </Pressable>
 
       <Button
-        title="SELL"
+        title={locale.common.sell}
         style={getStyles('flex-1 py-10 rounded-full bg-sell')}
         onPress={onSellPress}
       />
       <Button
-        title="BUY"
+        title={locale.common.buy}
         style={getStyles('flex-1 py-10 rounded-full bg-buy')}
         onPress={onBuyPress}
       />
