@@ -13,7 +13,7 @@ import { Toggle } from '@/components/composite';
 import { SelectionTab } from '@/components/composite/SelectionTab';
 
 export default function App() {
-  const [toggle, setToggle] = React.useState(false);
+  const [toggle, setToggle] = React.useState(true);
   const [option, setOption] = React.useState('regular');
 
   return (
@@ -27,7 +27,7 @@ export default function App() {
               Welcome to AwesomeProject!
             </Text>
             <Button title="Submit" />
-            <TextInput label="name" value="5" onChangeText={() => { }} />
+            <TextInput label="name" value="5" onChangeText={() => {}} />
             <BuySellFooter />
             <View style={getStyles('mt-8 px-8')}>
               <Toggle

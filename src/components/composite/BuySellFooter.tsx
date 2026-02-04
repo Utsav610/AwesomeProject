@@ -32,6 +32,7 @@ export const BuySellFooter: FC = ({ onBuyPress, onSellPress, onAlertPress }: But
         shape={'pill'}
         fullWidth={true}
         onPress={onSellPress}
+        style={getStyles('flex-1')}
       />
       <Button
         title={locale.common.buy}
@@ -39,6 +40,7 @@ export const BuySellFooter: FC = ({ onBuyPress, onSellPress, onAlertPress }: But
         shape={'pill'}
         fullWidth={true}
         onPress={onBuyPress}
+        style={getStyles('flex-1')}
       />
     </View>
   );

@@ -29,13 +29,17 @@ export const SelectionTab: FC<SelectionTabProps> = ({
         style={getStyles(
           `flex-1 flex-row gap-8 items-center justify-center p-4 border-1 rounded-l ${
             isLeftSelected
-              ? 'bg-selectionBackground border-selectionBorder'
-              : 'bg-surface border-border'
+              ? 'bg-backgroundSelected border-selectionBorder'
+              : 'bg-surface border-outlineDefault'
           }`,
         )}
       >
         {isLeftSelected && <CheckmarkIcon />}
-        <Text weight={isLeftSelected ? 'semibold' : 'regular'} size="base">
+        <Text
+          weight={isLeftSelected ? 'semibold' : 'regular'}
+          size="base"
+          color={isLeftSelected ? 'outlineSelected' : 'textTabActive'}
+        >
           {leftLabel}
         </Text>
       </Pressable>
@@ -44,13 +48,17 @@ export const SelectionTab: FC<SelectionTabProps> = ({
         style={getStyles(
           `flex-1 flex-row gap-8 items-center justify-center p-4 border-1 rounded-r ${
             isRightSelected
-              ? 'bg-selectionBackground border-selectionBorder'
-              : 'bg-surface border-border'
+              ? 'bg-backgroundSelected border-selectionBorder'
+              : 'bg-surface border-outlineDefault'
           }`,
         )}
       >
         {isRightSelected && <CheckmarkIcon />}
-        <Text weight={isRightSelected ? 'semibold' : 'regular'} size="base">
+        <Text
+          weight={isRightSelected ? 'semibold' : 'regular'}
+          size="base"
+          color={isRightSelected ? 'outlineSelected' : 'textTabActive'}
+        >
           {rightLabel}
         </Text>
       </Pressable>

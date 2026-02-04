@@ -98,6 +98,7 @@ const styles = StyleSheet.create({
   'py-2': { paddingVertical: hp(2) },
   'py-4': { paddingVertical: hp(4) },
   'py-8': { paddingVertical: hp(8) },
+  'py-10': { paddingVertical: hp(10) },
   'py-12': { paddingVertical: hp(12) },
   'py-16': { paddingVertical: hp(16) },
   'py-20': { paddingVertical: hp(20) },
