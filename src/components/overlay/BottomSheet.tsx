@@ -1,5 +1,5 @@
 import { Modal, Pressable, StyleSheet, View, type ViewStyle } from 'react-native';
-import { getStyles } from '@/styles/getStyles';
+import { getStyles } from '@styles/getStyles';
 
 export type BottomSheetProps = {
   visible: boolean;

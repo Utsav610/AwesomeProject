@@ -1,6 +1,6 @@
 import React, { FC, memo } from 'react';
-import { SafeAreaView, SafeAreaViewProps, useSafeAreaInsets } from 'react-native-safe-area-context';
-import { getStyles } from '../../styles';
+import { SafeAreaView, SafeAreaViewProps } from 'react-native-safe-area-context';
+import { getStyles } from '@styles/getStyles';
 import { StyleSheet } from 'react-native';
 
 export const CommonSafeAreaView: FC<SafeAreaViewProps> = props => {

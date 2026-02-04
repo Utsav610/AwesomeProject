@@ -1,7 +1,5 @@
 import { Text as RNText, StyleSheet, type TextProps } from 'react-native';
-import { getStyles } from '@/styles/getStyles';
-import { fontFamily, type TextSize, type TextWeight } from '@styles/typography';
-import type { ColorKey } from '@styles/theme';
+import { getStyles, ColorKey, fontFamily, type TextSize, type TextWeight } from '@styles/index';
 
 export type AppTextProps = TextProps & {
   size?: TextSize;

@@ -2,9 +2,9 @@ import { ReactNode, FC } from 'react';
 import { View, Pressable } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import { getStyles } from '@/styles';
-import { Text } from '@/components/base/Text';
-import { BackArrow } from '@/assets/icons';
+import { getStyles } from '@styles/getStyles';
+import { Text } from '@components/base';
+import { BackArrow } from '@assets/icons';
 
 export interface HeaderProps {
   title?: string;

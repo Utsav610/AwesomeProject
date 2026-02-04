@@ -8,7 +8,7 @@ import {
   StyleSheet,
 } from 'react-native';
 
-import { getStyles, theme } from '@/styles';
+import { getStyles, theme } from '@styles/index';
 import { Text } from './Text';
 
 export interface InputProps extends Omit<React.ComponentProps<typeof RNTextInput>, 'style'> {

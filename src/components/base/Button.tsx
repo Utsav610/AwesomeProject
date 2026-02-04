@@ -6,9 +6,8 @@ import {
   type ViewStyle,
 } from 'react-native';
 
-import { getStyles } from '@/styles/getStyles';
 import { Text } from './Text';
-import { ColorKey, theme } from '@/styles';
+import { ColorKey, theme, getStyles } from '@styles/index';
 
 type ButtonVariant = 'primary' | 'secondary' | 'danger' | 'success';
 type ButtonShape = 'default' | 'pill';

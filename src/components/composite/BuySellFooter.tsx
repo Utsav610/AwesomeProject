@@ -1,8 +1,7 @@
 import { FC } from 'react';
 import { Pressable, View } from 'react-native';
-import { Button } from '@components/base';
+import { Button, Text } from '@components/base';
 import { getStyles } from '@/styles/getStyles';
-import { Text } from '@components/base';
 import { AlertIcon } from '@/assets/icons';
 import { locale } from '@locales/index';
 

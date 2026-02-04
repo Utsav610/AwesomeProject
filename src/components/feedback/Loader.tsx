@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { Modal, View, ActivityIndicator } from 'react-native';
-import { getStyles, theme } from '../../styles';
+import { getStyles, theme } from '@styles/index';
 
 type LoaderProps = {
   visible: boolean;
