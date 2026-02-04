@@ -68,15 +68,17 @@ export const TextInput: FC<InputProps> = ({
 
   return (
     <View>
-      {label && (
+      {label ? (
         <Text size="sm" weight="medium" color="primary">
           {label}
         </Text>
-      )}
+      ) : null}
 
       <View
         style={StyleSheet.flatten([
-          getStyles(`flex-row items-center px-12 py-8 rounded-4 border-1 bg-surface ${stateClass}`),
+          getStyles(
+            `flex-row items-center px-12 py-8 rounded-4 border-1 bg-bodyDark border-outlineDefault ${stateClass}`,
+          ),
           containerStyle,
         ])}
       >
@@ -89,7 +91,7 @@ export const TextInput: FC<InputProps> = ({
           onChangeText={onChangeText}
           onFocus={handleFocus}
           onBlur={handleBlur}
-          style={StyleSheet.flatten([getStyles('flex-1 text-base text-foreground'), inputStyle])}
+          style={StyleSheet.flatten([getStyles('flex-1 text-base text-textTabActive'), inputStyle])}
           placeholderTextColor={theme.colors.secondary}
         />
 

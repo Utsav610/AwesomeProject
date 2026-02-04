@@ -3,10 +3,10 @@ import { getStyles } from '@styles/getStyles';
 import { Text } from '@components/base';
 import { FC } from 'react';
 
-export type ChipProps = PressableProps & {
+export interface ChipProps extends PressableProps {
   label: string;
   selected?: boolean;
-};
+}
 
 export const Chip: FC<ChipProps> = ({ label, selected = false, style, ...props }) => {
   const stateStyle = selected

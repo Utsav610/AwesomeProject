@@ -30,7 +30,6 @@ export const BuySellFooter: FC = ({ onBuyPress, onSellPress, onAlertPress }: But
         title={locale.common.sell}
         variant={'danger'}
         shape={'pill'}
-        fullWidth={true}
         onPress={onSellPress}
         style={getStyles('flex-1')}
       />
@@ -38,7 +37,6 @@ export const BuySellFooter: FC = ({ onBuyPress, onSellPress, onAlertPress }: But
         title={locale.common.buy}
         variant={'success'}
         shape={'pill'}
-        fullWidth={true}
         onPress={onBuyPress}
         style={getStyles('flex-1')}
       />
