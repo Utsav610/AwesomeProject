@@ -13,6 +13,8 @@ export const lightColors = {
   error: '#DC2626',
   buy: '#22C55E',
   sell: '#FF5252',
+  selectionBorder: '#4C1D95',
+  selectionBackground: '#F3E8FF',
 };
 
 export const darkColors = {
@@ -30,6 +32,8 @@ export const darkColors = {
   error: '#DC2626',
   buy: '#22C55E',
   sell: '#FF5252',
+  selectionBorder: '#4C1D95',
+  selectionBackground: '#F3E8FF',
 };
 
 export const theme = {

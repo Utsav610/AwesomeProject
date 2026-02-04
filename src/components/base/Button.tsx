@@ -9,7 +9,7 @@ import { getStyles } from '@/styles/getStyles';
 import { Text } from './Text';
 import { theme } from '@/styles';
 
-type ButtonVariant = 'primary' | 'secondary';
+type ButtonVariant = 'primary' | 'secondary' | 'rounded';
 
 export type ButtonProps = PressableProps & {
   title: string;
@@ -24,6 +24,7 @@ export type ButtonProps = PressableProps & {
 const VARIANT_STYLES: Record<ButtonVariant, string> = {
   primary: 'bg-primary',
   secondary: 'bg-surface border border-border',
+  rounded: 'rounded-full',
 };
 
 export const Button = ({

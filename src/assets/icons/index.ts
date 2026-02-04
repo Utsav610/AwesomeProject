@@ -1,4 +1,4 @@
 import AlertIcon from './alert.svg';
-import AlertIcon2 from './alert.svg';
+import CheckmarkIcon from './checkmark.svg';
 
-export { AlertIcon, AlertIcon2 };
+export { AlertIcon, CheckmarkIcon };
