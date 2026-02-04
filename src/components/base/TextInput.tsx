@@ -5,6 +5,7 @@ import {
   type StyleProp,
   type ViewStyle,
   type TextStyle,
+  StyleSheet,
 } from 'react-native';
 
 import { getStyles, theme } from '@/styles';
@@ -58,26 +59,26 @@ export const TextInput: FC<InputProps> = ({
   };
 
   const stateClass = !editable
-    ? 'bg-muted border-border'
+    ? 'bg-disabledLabel border-outlineDefault'
     : errorText
-    ? 'border-error'
+    ? 'border-loss'
     : isFocused
-    ? 'border-primary'
-    : 'border-border';
+    ? 'border-outlineSelected'
+    : 'border-outlineDefault';
 
   return (
     <View>
       {label && (
-        <Text size="sm" weight="medium" color="foreground">
+        <Text size="sm" weight="medium" color="primary">
           {label}
         </Text>
       )}
 
       <View
-        style={[
+        style={StyleSheet.flatten([
           getStyles(`flex-row items-center px-12 py-8 rounded-4 border-1 bg-surface ${stateClass}`),
           containerStyle,
-        ]}
+        ])}
       >
         {leftComponent}
 
@@ -88,15 +89,15 @@ export const TextInput: FC<InputProps> = ({
           onChangeText={onChangeText}
           onFocus={handleFocus}
           onBlur={handleBlur}
-          style={[getStyles('flex-1 text-base text-foreground'), inputStyle]}
-          placeholderTextColor={theme.colors.muted}
+          style={StyleSheet.flatten([getStyles('flex-1 text-base text-foreground'), inputStyle])}
+          placeholderTextColor={theme.colors.secondary}
         />
 
         {rightComponent}
       </View>
 
       {errorText && (
-        <Text size="xs" color="error">
+        <Text size="xs" color="loss">
           {errorText}
         </Text>
       )}

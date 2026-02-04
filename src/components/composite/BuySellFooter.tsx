@@ -4,6 +4,7 @@ import { Button } from '@components/base';
 import { getStyles } from '@/styles/getStyles';
 import { Text } from '@components/base';
 import { AlertIcon } from '@/assets/icons';
+import { locale } from '@locales/index';
 
 export type ButtonProps = {
   onBuyPress?: () => void;
@@ -12,32 +13,32 @@ export type ButtonProps = {
 };
 
 export const BuySellFooter: FC = ({ onBuyPress, onSellPress, onAlertPress }: ButtonProps) => {
-  const containerStyle = getStyles(
-    'flex-row px-12 py-16 gap-4 bg-background border-t border-border',
-  );
-
   return (
-    <View style={containerStyle}>
+    <View style={getStyles('flex-row px-12 py-16 gap-4 bg-background border-t border-border')}>
       <Pressable
         onPress={onAlertPress}
         style={getStyles(
-          'flex-row px-16 py-10 gap-4 rounded-lg justify-center items-center border-2 rounded-full',
+          'flex-row px-16 gap-4 rounded-lg justify-center items-center border-2 rounded-full',
         )}
       >
         <AlertIcon />
         <Text weight="semibold" size="base">
-          Alert
+          {locale?.common?.alert}
         </Text>
       </Pressable>
 
       <Button
-        title="SELL"
-        style={getStyles('flex-1 py-10 rounded-full bg-sell')}
+        title={locale.common.sell}
+        variant={'danger'}
+        shape={'pill'}
+        fullWidth={true}
         onPress={onSellPress}
       />
       <Button
-        title="BUY"
-        style={getStyles('flex-1 py-10 rounded-full bg-buy')}
+        title={locale.common.buy}
+        variant={'success'}
+        shape={'pill'}
+        fullWidth={true}
         onPress={onBuyPress}
       />
     </View>

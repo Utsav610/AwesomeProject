@@ -1,5 +1,5 @@
 import { FC, useEffect, useRef } from 'react';
-import { Pressable, Animated, ViewStyle } from 'react-native';
+import { Pressable, Animated, ViewStyle, StyleSheet } from 'react-native';
 import { getStyles } from '@/styles';
 
 interface ToggleProps {
@@ -28,17 +28,18 @@ export const Toggle: FC<ToggleProps> = ({ value, onChange, disabled = false }) =
 
   return (
     <Pressable
-      onPress={() => !disabled && onChange(!value)}
-      style={[
-        getStyles(`w-44 h-24 rounded-full justify-center ${trackClass} `),
+      disabled={disabled}
+      onPress={() => onChange(!value)}
+      style={StyleSheet.flatten([
+        getStyles(`w-40 h-24 rounded-full justify-center ${trackClass} `),
         disabled && getStyles('opacity-50'),
-      ]}
+      ])}
     >
       <Animated.View
-        style={[
+        style={StyleSheet.flatten([
           getStyles('w-20 h-20 bg-background rounded-full'),
           { transform: [{ translateX }] } as ViewStyle,
-        ]}
+        ])}
       />
     </Pressable>
   );

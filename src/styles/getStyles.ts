@@ -347,8 +347,8 @@ export const getStyles = (className: string) => {
     let style;
 
     /* ---- FONT SIZE ---- */
-    if (fontSizes[token]) {
-      style = fontSizes[token];
+    if (fontSizes[token as keyof typeof fontSizes]) {
+      style = fontSizes[token as keyof typeof fontSizes];
     } else if (token.startsWith('bg-')) {
       /* ---- BACKGROUND COLOR ---- */
       const key = token.replace('bg-', '') as ColorKey;

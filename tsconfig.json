@@ -12,7 +12,8 @@
       "@navigation/*": ["src/navigation/*"],
       "@queries/*": ["src/queries/*"],
       "@features/*": ["src/features/*"],
-      "@styles/*": ["src/styles/*"]
+      "@styles/*": ["src/styles/*"],
+      "@locales/*": ["src/locales/*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx"],

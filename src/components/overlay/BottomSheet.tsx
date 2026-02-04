@@ -1,4 +1,4 @@
-import { Modal, Pressable, View, type ViewStyle } from 'react-native';
+import { Modal, Pressable, StyleSheet, View, type ViewStyle } from 'react-native';
 import { getStyles } from '@/styles/getStyles';
 
 export type BottomSheetProps = {
@@ -16,7 +16,9 @@ export const BottomSheet = ({ visible, onClose, children, style }: BottomSheetPr
         <Pressable style={getStyles('absolute inset-0 bg-overlay opacity-50')} onPress={onClose} />
 
         {/* Sheet */}
-        <View style={[getStyles('bg-surface rounded-t-xl'), style]}>{children}</View>
+        <View style={StyleSheet.flatten([getStyles('bg-surface rounded-t-xl'), style])}>
+          {children}
+        </View>
       </View>
     </Modal>
   );
