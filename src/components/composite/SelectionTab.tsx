@@ -1,5 +1,5 @@
 import { Pressable, View } from 'react-native';
-import React from 'react';
+import React, { FC } from 'react';
 import { Text } from '@components/base';
 import { getStyles } from '@styles/getStyles';
 import { CheckmarkIcon } from '@assets/icons';
@@ -12,13 +12,13 @@ type SelectionTabProps = {
   selectedOption: string;
 };
 
-export const SelectionTab = ({
+export const SelectionTab: FC<SelectionTabProps> = ({
   leftLabel,
   onLeftPress,
   rightLabel,
   onRightPress,
   selectedOption,
-}: SelectionTabProps) => {
+}) => {
   const isLeftSelected = leftLabel === selectedOption;
   const isRightSelected = rightLabel === selectedOption;
 

@@ -1,5 +1,6 @@
 import { Text as RNText, StyleSheet, type TextProps } from 'react-native';
 import { getStyles, ColorKey, fontFamily, type TextSize, type TextWeight } from '@styles/index';
+import { FC } from 'react';
 
 export type AppTextProps = TextProps & {
   size?: TextSize;
@@ -7,7 +8,7 @@ export type AppTextProps = TextProps & {
   color?: ColorKey;
 };
 
-export const Text = ({
+export const Text: FC<AppTextProps> = ({
   size = 'base',
   weight = 'regular',
   color = 'primary',

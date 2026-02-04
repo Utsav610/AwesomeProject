@@ -8,6 +8,7 @@ import {
 
 import { Text } from './Text';
 import { ColorKey, theme, getStyles } from '@styles/index';
+import { FC } from 'react';
 
 type ButtonVariant = 'primary' | 'secondary' | 'danger' | 'success';
 type ButtonShape = 'default' | 'pill';
@@ -47,7 +48,7 @@ const LOADER_COLORS: Record<ButtonVariant, string> = {
   success: theme.colors.onBuy,
 };
 
-export const Button = ({
+export const Button: FC<ButtonProps> = ({
   title,
   variant = 'primary',
   shape = 'default',
@@ -57,7 +58,7 @@ export const Button = ({
   isLoading = false,
   onPress,
   ...props
-}: ButtonProps) => {
+}) => {
   const baseStyle = 'justify-center items-center';
   const widthStyle = fullWidth ? 'w-full' : '';
   const disabledStyle = disabled ? 'opacity-50' : '';
