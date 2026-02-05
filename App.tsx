@@ -8,9 +8,7 @@ import { StyleSheet, View } from 'react-native';
 import React from 'react';
 import { Button, CommonSafeAreaView, Text, TextInput } from '@components/base';
 import { getStyles } from './src/styles/getStyles';
-import { BuySellFooter } from '@/components/composite/BuySellFooter';
-import { Toggle } from '@/components/composite';
-import { SelectionTab } from '@/components/composite/SelectionTab';
+import { BuySellFooter, Toggle, SelectionTab, SortMenu } from '@/components/composite';
 
 export default function App() {
   const [toggle, setToggle] = React.useState(true);
@@ -27,8 +25,16 @@ export default function App() {
               Welcome to AwesomeProject!
             </Text>
             <Button title="Submit" />
-            <TextInput label="name" value="5" onChangeText={() => {}} />
+            <TextInput label="name" value="5" onChangeText={() => { }} />
             <BuySellFooter />
+            <View style={{ flexDirection: 'row' }}>
+              <View style={{ flex: 1 }}>
+                <Text>Hello how are you</Text>
+              </View>
+              <View style={{ flex: 1 }}>
+                <SortMenu />
+              </View>
+            </View>
             <View style={getStyles('mt-8 px-8')}>
               <Toggle
                 value={toggle}

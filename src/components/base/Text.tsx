@@ -2,6 +2,7 @@ import { Text as RNText, StyleSheet, type TextProps } from 'react-native';
 import { getStyles } from '@/styles/getStyles';
 import { fontFamily, type TextSize, type TextWeight } from '@styles/typography';
 import type { ColorKey } from '@styles/theme';
+import { FC } from 'react';
 
 export type AppTextProps = TextProps & {
   size?: TextSize;
@@ -9,13 +10,13 @@ export type AppTextProps = TextProps & {
   color?: ColorKey;
 };
 
-export const Text = ({
+export const Text: FC<AppTextProps> = ({
   size = 'base',
   weight = 'regular',
   color = 'primary',
   style,
   ...props
-}: AppTextProps) => {
+}) => {
   const tokenStyle = getStyles(`text-${size} text-${color}`);
 
   return (

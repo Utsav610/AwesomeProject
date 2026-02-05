@@ -1,16 +1,16 @@
 import { Pressable, View } from 'react-native';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Text } from '@components/base';
 import { getStyles } from '@/styles';
 import { CheckmarkIcon } from '@/assets/icons';
 
-type SelectionTabProps = {
+interface SelectionTabProps {
   leftLabel: string;
   onLeftPress: () => void;
   rightLabel: string;
   onRightPress: () => void;
   selectedOption: string;
-};
+}
 
 export const SelectionTab: FC<SelectionTabProps> = ({
   leftLabel,
@@ -27,10 +27,9 @@ export const SelectionTab: FC<SelectionTabProps> = ({
       <Pressable
         onPress={onLeftPress}
         style={getStyles(
-          `flex-1 flex-row gap-8 items-center justify-center p-4 border-1 rounded-l ${
-            isLeftSelected
-              ? 'bg-backgroundSelected border-selectionBorder'
-              : 'bg-surface border-outlineDefault'
+          `flex-1 flex-row gap-8 items-center justify-center p-4 border-1 rounded-l ${isLeftSelected
+            ? 'bg-backgroundSelected border-selectionBorder'
+            : 'bg-surface border-outlineDefault'
           }`,
         )}
       >
@@ -46,10 +45,9 @@ export const SelectionTab: FC<SelectionTabProps> = ({
       <Pressable
         onPress={onRightPress}
         style={getStyles(
-          `flex-1 flex-row gap-8 items-center justify-center p-4 border-1 rounded-r ${
-            isRightSelected
-              ? 'bg-backgroundSelected border-selectionBorder'
-              : 'bg-surface border-outlineDefault'
+          `flex-1 flex-row gap-8 items-center justify-center p-4 border-1 rounded-r ${isRightSelected
+            ? 'bg-backgroundSelected border-selectionBorder'
+            : 'bg-surface border-outlineDefault'
           }`,
         )}
       >

@@ -158,6 +158,7 @@ const styles = StyleSheet.create({
   'flex-col': { flexDirection: 'column' },
   'items-center': { alignItems: 'center' },
   'justify-center': { justifyContent: 'center' },
+  'justify-between': { justifyContent: 'space-between' },
   'self-center': { alignSelf: 'center' },
   'self-start': { alignSelf: 'flex-start' },
   'self-end': { alignSelf: 'flex-end' },
