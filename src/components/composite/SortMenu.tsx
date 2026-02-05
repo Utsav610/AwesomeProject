@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useCallback } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { Text } from '@components/base';
 import { OverlayContentWrapper } from '@components/overlay';
@@ -13,22 +13,27 @@ interface SortMenuProps {
 }
 
 export const SortMenu: FC<SortMenuProps> = ({ selected, onSelect }) => {
+  const renderOption = useCallback(
+    (option: SortOption) => (
+      <RadioItem
+        key={option.id}
+        label={option.label}
+        selected={option.id === selected.id}
+        onPress={() => onSelect(option)}
+      />
+    ),
+    [onSelect, selected],
+  );
+
   return (
     <OverlayContentWrapper
-      triggerPopup={handlePopupOpen => (
-        <TouchableOpacity onPress={handlePopupOpen}>
+      triggerPopup={handleOverlayOpen => (
+        <TouchableOpacity onPress={handleOverlayOpen}>
           <Text weight="semibold">☰ {locale?.common?.sort}</Text>
         </TouchableOpacity>
       )}
     >
-      {SORT_OPTIONS.map(option => (
-        <RadioItem
-          key={option.id}
-          label={option.label}
-          selected={option.id === selected.id}
-          onPress={() => onSelect(option)}
-        />
-      ))}
+      {SORT_OPTIONS.map(renderOption)}
     </OverlayContentWrapper>
   );
 };

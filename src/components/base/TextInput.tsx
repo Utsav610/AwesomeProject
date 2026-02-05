@@ -1,4 +1,4 @@
-import { useState, ReactNode, FC } from 'react';
+import { FC, ReactNode, useState, useCallback } from 'react';
 import {
   TextInput as RNTextInput,
   View,
@@ -45,18 +45,25 @@ export const TextInput: FC<InputProps> = ({
 }) => {
   const [isFocused, setIsFocused] = useState(false);
 
-  type OnFocusType = React.ComponentProps<typeof RNTextInput>['onFocus'];
-  type OnBlurType = React.ComponentProps<typeof RNTextInput>['onBlur'];
+  type OnFocusType = NonNullable<React.ComponentProps<typeof RNTextInput>['onFocus']>;
 
-  const handleFocus: OnFocusType = e => {
-    setIsFocused(true);
-    onFocus?.(e);
-  };
+  type OnBlurType = NonNullable<React.ComponentProps<typeof RNTextInput>['onBlur']>;
 
-  const handleBlur: OnBlurType = e => {
-    setIsFocused(false);
-    onBlur?.(e);
-  };
+  const handleFocus: OnFocusType = useCallback(
+    e => {
+      setIsFocused(true);
+      onFocus?.(e);
+    },
+    [onFocus],
+  );
+
+  const handleBlur: OnBlurType = useCallback(
+    e => {
+      setIsFocused(false);
+      onBlur?.(e);
+    },
+    [onBlur],
+  );
 
   const stateClass = !editable
     ? 'bg-disabledLabel border-outlineDefault'
@@ -98,11 +105,11 @@ export const TextInput: FC<InputProps> = ({
         {rightComponent}
       </View>
 
-      {errorText && (
+      {errorText ? (
         <Text size="xs" color="loss">
           {errorText}
         </Text>
-      )}
+      ) : null}
     </View>
   );
 };
