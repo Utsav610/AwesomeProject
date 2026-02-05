@@ -5,4 +5,4 @@ export { Button } from './Button';
 export { TextInput } from './TextInput';
 export { RadioItem } from './RadioItem';
 export { Chip } from './Chip';
-export { Toggle } from '../Toggle';
+export { Toggle } from './Toggle';
