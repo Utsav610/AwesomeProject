@@ -1,21 +1,17 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { Text } from '@components/base';
 import { PopupMenuWrapper } from '../base/PopupMenuWrapper';
 import { MenuItem } from '../base/MenuItem';
+import { SortOption } from '@/types/ConstantInterface';
+import { SORT_OPTIONS } from '@/constants/ui.constants';
 
-const SORT_OPTIONS = [
-  'A-Z Alphabetically',
-  'Z-A Alphabetically',
-  'LTP (Low to high)',
-  'LTP (High to Low)',
-  'P&L (Low to high)',
-  'P&L (High to Low)',
-];
+interface SortMenuProps {
+  selected: SortOption;
+  onSelect: (option: SortOption) => void;
+}
 
-export const SortMenu: FC = () => {
-  const [selected, setSelected] = useState(SORT_OPTIONS[0]);
-
+export const SortMenu: FC<SortMenuProps> = ({ selected, onSelect }) => {
   return (
     <PopupMenuWrapper
       trigger={open => (
@@ -24,12 +20,12 @@ export const SortMenu: FC = () => {
         </TouchableOpacity>
       )}
     >
-      {SORT_OPTIONS.map(item => (
+      {SORT_OPTIONS.map(option => (
         <MenuItem
-          key={item}
-          label={item}
-          selected={selected === item}
-          onPress={() => setSelected(item)}
+          key={option.id}
+          label={option.label}
+          selected={option.id === selected.id}
+          onPress={() => onSelect(option)}
         />
       ))}
     </PopupMenuWrapper>
