@@ -1,8 +1,7 @@
 import { FC } from 'react';
 import { Pressable, View } from 'react-native';
-import { Button } from '@components/base';
+import { Button, Text } from '@components/base';
 import { getStyles } from '@/styles/getStyles';
-import { Text } from '@components/base';
 import { AlertIcon } from '@/assets/icons';
 import { locale } from '@locales/index';
 
@@ -31,7 +30,6 @@ export const BuySellFooter: FC = ({ onBuyPress, onSellPress, onAlertPress }: But
         title={locale.common.sell}
         variant={'danger'}
         shape={'pill'}
-        fullWidth={true}
         onPress={onSellPress}
         style={getStyles('flex-1')}
       />
@@ -39,7 +37,6 @@ export const BuySellFooter: FC = ({ onBuyPress, onSellPress, onAlertPress }: But
         title={locale.common.buy}
         variant={'success'}
         shape={'pill'}
-        fullWidth={true}
         onPress={onBuyPress}
         style={getStyles('flex-1')}
       />

@@ -5,3 +5,4 @@ export { Button } from './Button';
 export { TextInput } from './TextInput';
 export { PopupMenuWrapper } from './PopupMenuWrapper';
 export { MenuItem } from './MenuItem';
+export { Chip } from './Chip';

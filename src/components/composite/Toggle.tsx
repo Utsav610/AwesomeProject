@@ -1,6 +1,6 @@
 import { FC, useEffect, useRef } from 'react';
 import { Pressable, Animated, ViewStyle, StyleSheet } from 'react-native';
-import { getStyles } from '@/styles';
+import { getStyles } from '@styles/getStyles';
 
 interface ToggleProps {
   value: boolean;

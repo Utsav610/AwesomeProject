@@ -1,9 +1,8 @@
 import { FC } from 'react';
 import { Modal, Pressable, View } from 'react-native';
 
-import { getStyles } from '@/styles/getStyles';
-import { Text } from '@/components/base/Text';
-import { Button } from '@/components/base/Button';
+import { getStyles } from '@styles/getStyles';
+import { Text, Button } from '@/components/base';
 
 interface ActionConfig {
   label: string;
@@ -35,7 +34,7 @@ export const ConfirmDialog: FC<ConfirmDialogProps> = ({
 
         {/* Dialog */}
         <View style={getStyles('w-280 bg-surface rounded-12 px-16 py-16')}>
-          <Text size="lg" weight="semibold" color="foreground" style={getStyles('text-center')}>
+          <Text size="lg" weight="semibold" color="primary" style={getStyles('text-center')}>
             {title}
           </Text>
 

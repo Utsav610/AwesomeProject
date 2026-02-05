@@ -1,8 +1,8 @@
 import { Pressable, View } from 'react-native';
 import { FC } from 'react';
 import { Text } from '@components/base';
-import { getStyles } from '@/styles';
-import { CheckmarkIcon } from '@/assets/icons';
+import { getStyles } from '@styles/getStyles';
+import { CheckmarkIcon } from '@assets/icons';
 
 interface SelectionTabProps {
   leftLabel: string;
