@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react';
-import { KeyboardAvoidingView, Platform, type ViewStyle, Keyboard } from 'react-native';
+import { KeyboardAvoidingView, Platform, type ViewStyle } from 'react-native';
 
 interface KeyboardContainerProps {
   children: ReactNode;

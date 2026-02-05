@@ -1,5 +1,6 @@
 import { Modal, Pressable, StyleSheet, View, type ViewStyle } from 'react-native';
 import { getStyles } from '@styles/getStyles';
+import { FC } from 'react';
 
 export type BottomSheetProps = {
   visible: boolean;
@@ -8,7 +9,7 @@ export type BottomSheetProps = {
   style?: ViewStyle;
 };
 
-export const BottomSheet = ({ visible, onClose, children, style }: BottomSheetProps) => {
+export const BottomSheet: FC<BottomSheetProps> = ({ visible, onClose, children, style }) => {
   return (
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
       <View style={getStyles('flex-1 justify-end')}>

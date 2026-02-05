@@ -14,7 +14,7 @@ export const Text: FC<AppTextProps> = ({
   color = 'primary',
   style,
   ...props
-}: AppTextProps) => {
+}) => {
   const tokenStyle = getStyles(`text-${size} text-${color}`);
 
   return (

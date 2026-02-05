@@ -5,13 +5,17 @@ import { getStyles } from '@/styles/getStyles';
 import { AlertIcon } from '@/assets/icons';
 import { locale } from '@locales/index';
 
-export type ButtonProps = {
+export type BuySellFooterProps = {
   onBuyPress?: () => void;
   onSellPress?: () => void;
   onAlertPress?: () => void;
 };
 
-export const BuySellFooter: FC = ({ onBuyPress, onSellPress, onAlertPress }: ButtonProps) => {
+export const BuySellFooter: FC<BuySellFooterProps> = ({
+  onBuyPress,
+  onSellPress,
+  onAlertPress,
+}) => {
   return (
     <View style={getStyles('flex-row px-12 py-16 gap-4 bg-background border-t border-border')}>
       <Pressable
