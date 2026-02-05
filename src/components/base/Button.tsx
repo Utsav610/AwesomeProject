@@ -10,7 +10,7 @@ import { FC } from 'react';
 import { Text } from './Text';
 import { ColorKey, theme, getStyles } from '@styles/index';
 
-type ButtonVariant = 'primary' | 'secondary' | 'danger' | 'success';
+type ButtonVariant = 'primary' | 'secondary' | 'danger' | 'success' | 'outline';
 type ButtonShape = 'default' | 'pill';
 type ButtonSize = 'sm' | 'md' | 'lg';
 
@@ -26,9 +26,10 @@ export interface ButtonProps extends PressableProps {
 /* ===== VARIANT ===== */
 const VARIANT_STYLES: Record<ButtonVariant, string> = {
   primary: 'bg-onBackground',
-  secondary: 'bg-bodyDark border border-onBackground',
+  secondary: 'bg-backgroundSelected border-1 border-selectedText',
   danger: 'bg-sellButton',
   success: 'bg-buyButton',
+  outline: 'border-1 border-outlineDefault bg-backgroundDefault',
 };
 
 /* ===== SHAPE ===== */
@@ -50,6 +51,7 @@ const TEXT_COLORS: Record<ButtonVariant, ColorKey> = {
   secondary: 'textTabSelected',
   danger: 'sell',
   success: 'onBuy',
+  outline: 'onBackground',
 };
 
 /* ===== LOADER COLOR ===== */
@@ -58,6 +60,7 @@ const LOADER_COLORS: Record<ButtonVariant, string> = {
   secondary: theme.colors.onBackground,
   danger: theme.colors.sell,
   success: theme.colors.onBuy,
+  outline: theme.colors.onBackground,
 };
 
 export const Button: FC<ButtonProps> = ({
@@ -72,13 +75,9 @@ export const Button: FC<ButtonProps> = ({
   ...props
 }) => {
   const containerStyle = getStyles(
-    `
-      justify-center items-center
-      ${VARIANT_STYLES[variant]}
-      ${SHAPE_STYLES[shape]}
-      ${SIZE_STYLES[size]}
-      ${disabled ? 'opacity-50' : ''}
-    `,
+    `justify-center items-center ${VARIANT_STYLES[variant]} ${SHAPE_STYLES[shape]} ${
+      SIZE_STYLES[size]
+    } ${disabled ? 'opacity-50' : ''}`,
   );
 
   return (
