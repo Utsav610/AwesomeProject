@@ -1,5 +1,5 @@
 import { FC, ReactNode, useRef, useState } from 'react';
-import { View, Modal, Pressable, Dimensions } from 'react-native';
+import { View, Modal, Pressable, Dimensions, StyleSheet } from 'react-native';
 import { getStyles } from '@/styles';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -50,19 +50,14 @@ export const PopupMenuWrapper: FC<PopupMenuWrapperProps> = ({
       <Modal transparent visible={visible} animationType="fade">
         <Pressable style={getStyles('flex-1')} onPress={close}>
           <View
-            style={[
-              getStyles('absolute bg-backgroundDefault rounded-12 py-6 z-50'),
+            style={StyleSheet.flatten([
+              getStyles('absolute bg-backgroundDefault rounded-12 py-6 z-50 shadow-overlay'),
               {
                 top: position.top,
                 left: position.left,
                 width: menuWidth,
-                elevation: 8,
-                shadowColor: '#000',
-                shadowOffset: { width: 0, height: 2 },
-                shadowOpacity: 0.15,
-                shadowRadius: 12,
               },
-            ]}
+            ])}
           >
             {children}
           </View>
