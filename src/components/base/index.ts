@@ -4,3 +4,5 @@ export { TouchableOpacity } from './TouchableOpacity';
 export { Button } from './Button';
 export { TextInput } from './TextInput';
 export { Chip } from './Chip';
+export { KeyboardContainer } from './KeyboardContainer';
+export { KeyboardScrollContainer } from './KeyboardScrollContainer';
