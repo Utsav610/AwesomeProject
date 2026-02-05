@@ -6,5 +6,6 @@ export const en = {
     buy: 'Buy',
     sell: 'Sell',
     alert: 'Alert',
+    sort: "Sort",
   },
 };

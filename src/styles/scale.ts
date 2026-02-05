@@ -14,4 +14,4 @@ const wp = (size: number) => normalize(size, 'width');
 const hp = (size: number) => normalize(size, 'height');
 const fontPixel = (size: number) => wp(size);
 
-export { wp, hp, fontPixel };
+export { wp, hp, fontPixel, SCREEN_WIDTH, SCREEN_HEIGHT };

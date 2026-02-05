@@ -1,21 +1,55 @@
 {
   "extends": "@react-native/typescript-config",
   "compilerOptions": {
-    "types": ["jest"],
+    "types": [
+      "jest"
+    ],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@components/*": ["src/components/*"],
-      "@assets/*": ["src/assets/*"],
-      "@utils/*": ["src/utils/*"],
-      "@services/*": ["src/services/*"],
-      "@navigation/*": ["src/navigation/*"],
-      "@queries/*": ["src/queries/*"],
-      "@features/*": ["src/features/*"],
-      "@styles/*": ["src/styles/*"],
-      "@locales/*": ["src/locales/*"]
+      "@/*": [
+        "src/*"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ],
+      "@services/*": [
+        "src/services/*"
+      ],
+      "@navigation/*": [
+        "src/navigation/*"
+      ],
+      "@queries/*": [
+        "src/queries/*"
+      ],
+      "@features/*": [
+        "src/features/*"
+      ],
+      "@styles/*": [
+        "src/styles/*"
+      ],
+      "@locales/*": [
+        "src/locales/*"
+      ],
+      "@types/*": [
+        "src/types/*"
+      ],
+      "@constants/*": [
+        "src/constants/*"
+      ]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["**/node_modules", "**/Pods"]
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "**/node_modules",
+    "**/Pods"
+  ]
 }
