@@ -8,7 +8,7 @@ import {
 import { FC } from 'react';
 
 import { Text } from './Text';
-import { ColorKey, theme, getStyles } from '@styles/index';
+import { ColorKey, theme, getStyles, TextSize, TextWeight } from '@styles/index';
 
 type ButtonVariant = 'primary' | 'secondary' | 'danger' | 'success' | 'outline';
 type ButtonShape = 'default' | 'pill';
@@ -54,6 +54,20 @@ const TEXT_COLORS: Record<ButtonVariant, ColorKey> = {
   outline: 'onBackground',
 };
 
+const TEXT_SIZES: Record<ButtonSize, TextSize> = {
+  sm: 'base',
+  md: 'xs',
+  lg: 'base',
+};
+
+const FONT_WEIGHTS: Record<ButtonVariant, TextWeight> = {
+  primary: 'medium',
+  secondary: 'medium',
+  danger: 'semibold',
+  success: 'semibold',
+  outline: 'medium',
+};
+
 /* ===== LOADER COLOR ===== */
 const LOADER_COLORS: Record<ButtonVariant, string> = {
   primary: theme.colors.bodyLight,
@@ -90,7 +104,7 @@ export const Button: FC<ButtonProps> = ({
       {isLoading ? (
         <ActivityIndicator size="small" color={LOADER_COLORS[variant]} />
       ) : (
-        <Text weight="semibold" size="base" color={TEXT_COLORS[variant]}>
+        <Text weight={FONT_WEIGHTS[variant]} size={TEXT_SIZES[size]} color={TEXT_COLORS[variant]}>
           {title}
         </Text>
       )}
