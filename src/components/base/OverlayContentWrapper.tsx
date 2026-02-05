@@ -1,36 +1,34 @@
 import { FC, ReactNode, useRef, useState } from 'react';
-import { View, Modal, Pressable, Dimensions } from 'react-native';
-import { getStyles } from '@/styles';
+import { View, Modal, Pressable } from 'react-native';
+import { getStyles, SCREEN_WIDTH } from '@/styles';
 
-const SCREEN_WIDTH = Dimensions.get('window').width;
-
-interface PopupMenuWrapperProps {
-  trigger: (open: () => void) => ReactNode;
+interface OverlayContentWrapperProps {
+  triggerPopup: (handlePopupOpen: () => void) => ReactNode;
   children: ReactNode;
   align?: 'start' | 'end';
-  menuWidth?: number;
+  overlayWidth?: number;
 }
 
-export const PopupMenuWrapper: FC<PopupMenuWrapperProps> = ({
-  trigger,
+export const OverlayContentWrapper: FC<OverlayContentWrapperProps> = ({
+  triggerPopup,
   children,
   align = 'start',
-  menuWidth = 220,
+  overlayWidth = 220,
 }) => {
-  const triggerRef = useRef<View>(null);
+  const triggerPopupRef = useRef<View>(null);
   const [visible, setVisible] = useState(false);
   const [position, setPosition] = useState({ top: 0, left: 0 });
 
-  const open = () => {
-    triggerRef.current?.measureInWindow((x, y, width, height) => {
+  const handlePopupOpen = () => {
+    triggerPopupRef.current?.measureInWindow((x, y, width, height) => {
       let left = x;
 
       if (align === 'end') {
-        left = x + width - menuWidth;
+        left = x + width - overlayWidth;
       }
 
       // prevent overflow
-      left = Math.max(8, Math.min(left, SCREEN_WIDTH - menuWidth - 6));
+      left = Math.max(8, Math.min(left, SCREEN_WIDTH - overlayWidth - 6));
 
       setPosition({
         top: y + height + 6,
@@ -45,7 +43,7 @@ export const PopupMenuWrapper: FC<PopupMenuWrapperProps> = ({
 
   return (
     <>
-      <View ref={triggerRef}>{trigger(open)}</View>
+      <View ref={triggerPopupRef}>{triggerPopup(handlePopupOpen)}</View>
 
       <Modal transparent visible={visible} animationType="fade">
         <Pressable style={getStyles('flex-1')} onPress={close}>
@@ -55,7 +53,7 @@ export const PopupMenuWrapper: FC<PopupMenuWrapperProps> = ({
               {
                 top: position.top,
                 left: position.left,
-                width: menuWidth,
+                width: overlayWidth,
                 elevation: 8,
                 shadowColor: '#000',
                 shadowOffset: { width: 0, height: 2 },

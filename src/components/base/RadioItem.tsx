@@ -4,13 +4,13 @@ import { Text } from '@components/base';
 import { getStyles } from '@/styles';
 import { Radio, SelectRadio } from '@/assets/icons';
 
-interface MenuItemProps {
+interface RadioItemProps {
   label: string;
   selected: boolean;
   onPress: () => void;
 }
 
-export const MenuItem: FC<MenuItemProps> = ({ label, selected, onPress }) => {
+export const RadioItem: FC<RadioItemProps> = ({ label, selected, onPress }) => {
   return (
     <TouchableOpacity
       style={getStyles('flex-row px-16 py-12 justify-between items-center')}

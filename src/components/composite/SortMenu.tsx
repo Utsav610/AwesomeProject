@@ -1,10 +1,11 @@
 import { FC } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { Text } from '@components/base';
-import { PopupMenuWrapper } from '../base/PopupMenuWrapper';
-import { MenuItem } from '../base/MenuItem';
-import { SortOption } from '@/types/ConstantInterface';
+import { OverlayContentWrapper } from '../base/OverlayContentWrapper';
+import { RadioItem } from '../base/RadioItem';
 import { SORT_OPTIONS } from '@/constants/ui.constants';
+import { SortOption } from '@/types/CommonTypes';
+import { locale } from '@/locales';
 
 interface SortMenuProps {
   selected: SortOption;
@@ -13,21 +14,21 @@ interface SortMenuProps {
 
 export const SortMenu: FC<SortMenuProps> = ({ selected, onSelect }) => {
   return (
-    <PopupMenuWrapper
-      trigger={open => (
-        <TouchableOpacity onPress={open}>
-          <Text weight="semibold">☰ Sort</Text>
+    <OverlayContentWrapper
+      triggerPopup={handlePopupOpen => (
+        <TouchableOpacity onPress={handlePopupOpen}>
+          <Text weight="semibold">☰ {locale?.common?.sort}</Text>
         </TouchableOpacity>
       )}
     >
       {SORT_OPTIONS.map(option => (
-        <MenuItem
+        <RadioItem
           key={option.id}
           label={option.label}
           selected={option.id === selected.id}
           onPress={() => onSelect(option)}
         />
       ))}
-    </PopupMenuWrapper>
+    </OverlayContentWrapper>
   );
 };
