@@ -28,6 +28,7 @@ module.exports = {
           '@features': './src/features',
           '@styles': './src/styles',
           '@locales': './src/locales',
+          '@constants': './src/constants',
         },
       },
     ],

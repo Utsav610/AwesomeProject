@@ -28,6 +28,7 @@ const config = {
       '@queries': path.resolve(__dirname, 'src/queries'),
       '@styles': path.resolve(__dirname, 'src/styles'),
       '@locales': path.resolve(__dirname, 'src/locales'),
+      '@constants': path.resolve(__dirname, 'src/constants'),
     },
   },
 };

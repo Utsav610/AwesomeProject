@@ -1,11 +1,10 @@
 import axios from 'axios';
 import { API_BASE_URL } from '@env';
-
-const TIMEOUT = 15000;
+import { API_TIMEOUT } from '@constants/index';
 
 export const api = axios.create({
   baseURL: API_BASE_URL,
-  timeout: TIMEOUT,
+  timeout: API_TIMEOUT,
   headers: {
     'Content-Type': 'application/json',
   },
