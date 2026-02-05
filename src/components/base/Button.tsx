@@ -5,23 +5,25 @@ import {
   type PressableProps,
   type ViewStyle,
 } from 'react-native';
+import { FC } from 'react';
 
 import { Text } from './Text';
 import { ColorKey, theme, getStyles } from '@styles/index';
-import { FC } from 'react';
 
 type ButtonVariant = 'primary' | 'secondary' | 'danger' | 'success';
 type ButtonShape = 'default' | 'pill';
+type ButtonSize = 'sm' | 'md' | 'lg';
 
-export type ButtonProps = PressableProps & {
+export interface ButtonProps extends PressableProps {
   title: string;
   variant?: ButtonVariant;
   shape?: ButtonShape;
-  fullWidth?: boolean;
+  size?: ButtonSize;
   isLoading?: boolean;
   disabled?: boolean;
-};
+}
 
+/* ===== VARIANT ===== */
 const VARIANT_STYLES: Record<ButtonVariant, string> = {
   primary: 'bg-onBackground',
   secondary: 'bg-bodyDark border border-onBackground',
@@ -29,21 +31,31 @@ const VARIANT_STYLES: Record<ButtonVariant, string> = {
   success: 'bg-buyButton',
 };
 
+/* ===== SHAPE ===== */
 const SHAPE_STYLES: Record<ButtonShape, string> = {
-  default: 'rounded-12 px-16 py-12',
-  pill: 'rounded-full px-20 py-10',
+  default: 'rounded-12',
+  pill: 'rounded-full',
 };
 
-const TEXT_COLORS: Record<ButtonVariant, string> = {
+/* ===== SIZE (HEIGHT-DRIVEN) ===== */
+const SIZE_STYLES: Record<ButtonSize, string> = {
+  sm: 'h-32 px-12',
+  md: 'h-40 px-16',
+  lg: 'h-56 px-20',
+};
+
+/* ===== TEXT COLOR ===== */
+const TEXT_COLORS: Record<ButtonVariant, ColorKey> = {
   primary: 'bodyDark',
   secondary: 'textTabSelected',
   danger: 'sell',
   success: 'onBuy',
 };
 
+/* ===== LOADER COLOR ===== */
 const LOADER_COLORS: Record<ButtonVariant, string> = {
   primary: theme.colors.bodyLight,
-  secondary: theme.colors.primary,
+  secondary: theme.colors.onBackground,
   danger: theme.colors.sell,
   success: theme.colors.onBuy,
 };
@@ -52,32 +64,34 @@ export const Button: FC<ButtonProps> = ({
   title,
   variant = 'primary',
   shape = 'default',
+  size = 'md',
   disabled,
-  fullWidth,
-  style,
   isLoading = false,
+  style,
   onPress,
   ...props
 }) => {
-  const baseStyle = 'justify-center items-center';
-  const widthStyle = fullWidth ? 'w-full' : '';
-  const disabledStyle = disabled ? 'opacity-50' : '';
-
   const containerStyle = getStyles(
-    `${baseStyle} ${VARIANT_STYLES[variant]} ${SHAPE_STYLES[shape]} ${widthStyle} ${disabledStyle}`,
+    `
+      justify-center items-center
+      ${VARIANT_STYLES[variant]}
+      ${SHAPE_STYLES[shape]}
+      ${SIZE_STYLES[size]}
+      ${disabled ? 'opacity-50' : ''}
+    `,
   );
 
   return (
     <Pressable
       disabled={disabled || isLoading}
-      style={StyleSheet.flatten([containerStyle, style as ViewStyle])}
       onPress={onPress}
+      style={StyleSheet.flatten([containerStyle, style as ViewStyle])}
       {...props}
     >
       {isLoading ? (
         <ActivityIndicator size="small" color={LOADER_COLORS[variant]} />
       ) : (
-        <Text weight="semibold" size="base" color={TEXT_COLORS[variant] as ColorKey}>
+        <Text weight="semibold" size="base" color={TEXT_COLORS[variant]}>
           {title}
         </Text>
       )}
