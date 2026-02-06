@@ -2,7 +2,6 @@ import { FC } from 'react';
 import { TouchableOpacity, View } from 'react-native';
 import { Text } from '@components/base';
 import { getStyles } from '@styles/getStyles';
-import { Radio, SelectRadio } from '@assets/icons';
 
 interface RadioItemProps {
   label: string;
@@ -12,6 +11,17 @@ interface RadioItemProps {
 }
 
 export const RadioItem: FC<RadioItemProps> = ({ label, subLabel, selected, onPress }) => {
+  const RadioButton = ({ selected }: { selected: boolean }) => {
+    return (
+      <View
+        style={getStyles(
+          'w-20 h-20 rounded-full border-onBackground border-2 justify-center items-center ',
+        )}
+      >
+        {selected ? <View style={getStyles('w-12 h-12 rounded-full bg-onBackground')} /> : null}
+      </View>
+    );
+  };
   return (
     <TouchableOpacity
       style={getStyles('flex-row px-16 py-12 justify-between items-center')}
@@ -28,7 +38,7 @@ export const RadioItem: FC<RadioItemProps> = ({ label, subLabel, selected, onPre
         ) : null}
       </View>
 
-      {selected ? <SelectRadio /> : <Radio />}
+      <RadioButton selected={selected} />
     </TouchableOpacity>
   );
 };
