@@ -1,0 +1,66 @@
+import { FC, ReactNode, useCallback, useRef, useState } from 'react';
+import { View, Modal, Pressable, StyleSheet } from 'react-native';
+import { getStyles, SCREEN_WIDTH } from '@/styles';
+
+interface OverlayContentWrapperProps {
+  triggerPopup: (handleOpen: () => void) => ReactNode;
+  children: ReactNode;
+  align?: 'start' | 'end';
+  overlayWidth?: number;
+}
+
+export const OverlayContentWrapper: FC<OverlayContentWrapperProps> = ({
+  triggerPopup,
+  children,
+  align = 'start',
+  overlayWidth = 220,
+}) => {
+  const triggerPopupRef = useRef<View>(null);
+  const [visible, setVisible] = useState(false);
+  const [position, setPosition] = useState({ top: 0, left: 0 });
+
+  const handleOpen = useCallback(() => {
+    triggerPopupRef.current?.measureInWindow((x, y, width, height) => {
+      let left = x;
+
+      if (align === 'end') {
+        left = x + width - overlayWidth;
+      }
+
+      // prevent overflow
+      left = Math.max(8, Math.min(left, SCREEN_WIDTH - overlayWidth - 6));
+
+      setPosition({
+        top: y + height + 6,
+        left,
+      });
+
+      setVisible(true);
+    });
+  }, [align, overlayWidth]);
+
+  const handleClose = useCallback(() => setVisible(false), []);
+
+  return (
+    <>
+      <View ref={triggerPopupRef}>{triggerPopup(handleOpen)}</View>
+
+      <Modal transparent visible={visible} animationType="fade">
+        <Pressable style={getStyles('flex-1')} onPress={handleClose}>
+          <View
+            style={StyleSheet.flatten([
+              getStyles('absolute bg-backgroundDefault rounded-12 py-6 z-50 shadow-overlay'),
+              {
+                top: position.top,
+                left: position.left,
+                width: overlayWidth,
+              },
+            ])}
+          >
+            {children}
+          </View>
+        </Pressable>
+      </Modal>
+    </>
+  );
+};

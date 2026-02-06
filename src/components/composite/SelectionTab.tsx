@@ -1,16 +1,21 @@
 import { Pressable, View } from 'react-native';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Text } from '@components/base';
 import { getStyles } from '@styles/getStyles';
 import { CheckmarkIcon } from '@assets/icons';
 
-type SelectionTabProps = {
-  leftLabel: string;
+export type LabelOption = {
+  id: string;
+  label: string;
+};
+
+interface SelectionTabProps {
+  leftLabel: LabelOption;
   onLeftPress: () => void;
-  rightLabel: string;
+  rightLabel: LabelOption;
   onRightPress: () => void;
   selectedOption: string;
-};
+}
 
 export const SelectionTab: FC<SelectionTabProps> = ({
   leftLabel,
@@ -19,8 +24,8 @@ export const SelectionTab: FC<SelectionTabProps> = ({
   onRightPress,
   selectedOption,
 }) => {
-  const isLeftSelected = leftLabel === selectedOption;
-  const isRightSelected = rightLabel === selectedOption;
+  const isLeftSelected = leftLabel.id === selectedOption;
+  const isRightSelected = rightLabel.id === selectedOption;
 
   return (
     <View style={getStyles('flex-row')}>
@@ -40,7 +45,7 @@ export const SelectionTab: FC<SelectionTabProps> = ({
           size="base"
           color={isLeftSelected ? 'outlineSelected' : 'textTabActive'}
         >
-          {leftLabel}
+          {leftLabel.label}
         </Text>
       </Pressable>
       <Pressable
@@ -59,7 +64,7 @@ export const SelectionTab: FC<SelectionTabProps> = ({
           size="base"
           color={isRightSelected ? 'outlineSelected' : 'textTabActive'}
         >
-          {rightLabel}
+          {rightLabel.label}
         </Text>
       </Pressable>
     </View>

@@ -158,6 +158,7 @@ const styles = StyleSheet.create({
   'flex-col': { flexDirection: 'column' },
   'items-center': { alignItems: 'center' },
   'justify-center': { justifyContent: 'center' },
+  'justify-between': { justifyContent: 'space-between' },
   'self-center': { alignSelf: 'center' },
   'self-start': { alignSelf: 'flex-start' },
   'self-end': { alignSelf: 'flex-end' },
@@ -315,6 +316,15 @@ const styles = StyleSheet.create({
   /* ---- overflow ---- */
   'overflow-hidden': { overflow: 'hidden' },
   'overflow-visible': { overflow: 'visible' },
+
+  /* ---- shadow ---- */
+  'shadow-overlay': {
+    elevation: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.15,
+    shadowRadius: 12,
+  },
 
   /* ---- position ---- */
   relative: { position: 'relative' },
