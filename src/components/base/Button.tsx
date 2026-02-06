@@ -4,8 +4,9 @@ import {
   StyleSheet,
   type PressableProps,
   type ViewStyle,
+  View,
 } from 'react-native';
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 
 import { Text } from './Text';
 import { ColorKey, theme, getStyles, TextSize, TextWeight } from '@styles/index';
@@ -19,6 +20,7 @@ export interface ButtonProps extends PressableProps {
   variant?: ButtonVariant;
   shape?: ButtonShape;
   size?: ButtonSize;
+  icon?: ReactNode;
   isLoading?: boolean;
   disabled?: boolean;
 }
@@ -38,7 +40,7 @@ const SHAPE_STYLES: Record<ButtonShape, string> = {
   pill: 'rounded-full',
 };
 
-/* ===== SIZE (HEIGHT-DRIVEN) ===== */
+/* ===== SIZE ===== */
 const SIZE_STYLES: Record<ButtonSize, string> = {
   sm: 'h-32 px-12',
   md: 'h-40 px-16',
@@ -79,6 +81,7 @@ const LOADER_COLORS: Record<ButtonVariant, string> = {
 
 export const Button: FC<ButtonProps> = ({
   title,
+  icon,
   variant = 'primary',
   shape = 'default',
   size = 'md',
@@ -104,9 +107,13 @@ export const Button: FC<ButtonProps> = ({
       {isLoading ? (
         <ActivityIndicator size="small" color={LOADER_COLORS[variant]} />
       ) : (
-        <Text weight={FONT_WEIGHTS[variant]} size={TEXT_SIZES[size]} color={TEXT_COLORS[variant]}>
-          {title}
-        </Text>
+        <View style={getStyles('flex-row items-center gap-8')}>
+          {icon ? icon : null}
+
+          <Text weight={FONT_WEIGHTS[variant]} size={TEXT_SIZES[size]} color={TEXT_COLORS[variant]}>
+            {title}
+          </Text>
+        </View>
       )}
     </Pressable>
   );
