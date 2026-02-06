@@ -1,9 +1,8 @@
 import { FC, useCallback } from 'react';
 import { TouchableOpacity } from 'react-native';
-import { Text } from '@components/base';
+import { Text, RadioItem } from '@components/base';
 import { OverlayContentWrapper } from '@components/overlay';
-import { RadioItem } from '../base/RadioItem';
-import { SORT_OPTIONS } from '@/constants/ui.constants';
+import { SORT_OPTIONS } from '@constants/ui.constants';
 import { SortOption } from '@/types/CommonTypes';
 import { locale } from '@/locales';
 
