@@ -4,28 +4,28 @@ import { Text } from '@components/base';
 import { getStyles } from '@styles/getStyles';
 import { CheckmarkIcon } from '@assets/icons';
 
-export type LabelOption = {
+export type TabItem = {
   id: string;
   label: string;
 };
 
 interface SelectionTabProps {
-  leftLabel: LabelOption;
+  leftTab: TabItem;
   onLeftPress: () => void;
-  rightLabel: LabelOption;
+  rightTab: TabItem;
   onRightPress: () => void;
   selectedOption: string;
 }
 
 export const SelectionTab: FC<SelectionTabProps> = ({
-  leftLabel,
+  leftTab,
   onLeftPress,
-  rightLabel,
+  rightTab,
   onRightPress,
   selectedOption,
 }) => {
-  const isLeftSelected = leftLabel.id === selectedOption;
-  const isRightSelected = rightLabel.id === selectedOption;
+  const isLeftSelected = leftTab?.id === selectedOption;
+  const isRightSelected = rightTab?.id === selectedOption;
 
   return (
     <View style={getStyles('flex-row')}>
@@ -45,7 +45,7 @@ export const SelectionTab: FC<SelectionTabProps> = ({
           size="base"
           color={isLeftSelected ? 'outlineSelected' : 'textTabActive'}
         >
-          {leftLabel.label}
+          {leftTab?.label}
         </Text>
       </Pressable>
       <Pressable
@@ -64,7 +64,7 @@ export const SelectionTab: FC<SelectionTabProps> = ({
           size="base"
           color={isRightSelected ? 'outlineSelected' : 'textTabActive'}
         >
-          {rightLabel.label}
+          {rightTab?.label}
         </Text>
       </Pressable>
     </View>

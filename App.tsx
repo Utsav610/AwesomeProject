@@ -27,7 +27,7 @@ export default function App() {
               Welcome to AwesomeProject!
             </Text>
             <Button title="Submit" />
-            <TextInput label="name" value="5" onChangeText={() => { }} />
+            <TextInput label="name" value="5" onChangeText={() => {}} />
             <BuySellFooter />
             <View style={{ flexDirection: 'row' }}>
               <View style={{ flex: 1 }}>
@@ -39,19 +39,19 @@ export default function App() {
             </View>
             <View style={getStyles('mt-8 px-8')}>
               <Toggle
-                value={toggle} 
+                value={toggle}
                 onChange={() => {
                   setToggle(!toggle);
                 }}
               />
             </View>
             <SelectionTab
-              leftLabel={{
+              leftTab={{
                 id: '1',
                 label: 'Regular',
               }}
               onLeftPress={() => setOption('regular')}
-              rightLabel={{
+              rightTab={{
                 id: '2',
                 label: 'MTF',
               }}

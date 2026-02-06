@@ -18,9 +18,9 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({ options, value, on
   const renderOption = useCallback(
     (option: SegmentOption) => (
       <Chip
-        key={option.id}
-        label={option.label}
-        selected={option.id === value}
+        key={option?.id}
+        label={option?.label}
+        selected={option?.id === value}
         onPress={() => onChange(option?.id)}
       />
     ),

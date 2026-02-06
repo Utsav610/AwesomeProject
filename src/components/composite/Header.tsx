@@ -8,10 +8,8 @@ import { BackArrow } from '@assets/icons';
 
 export interface HeaderProps {
   title?: string;
-
   center?: ReactNode;
   right?: ReactNode;
-
   leftIcon?: ReactNode;
   onLeftIconPress?: () => void;
 }

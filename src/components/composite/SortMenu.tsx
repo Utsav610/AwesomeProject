@@ -3,7 +3,7 @@ import { TouchableOpacity } from 'react-native';
 import { Text, RadioItem } from '@components/base';
 import { OverlayContentWrapper } from '@components/overlay';
 import { SORT_OPTIONS } from '@constants/ui.constants';
-import { SortOption } from '@/types/CommonTypes';
+import { SortOption } from '@/types/commonTypes';
 import { locale } from '@/locales';
 
 interface SortMenuProps {

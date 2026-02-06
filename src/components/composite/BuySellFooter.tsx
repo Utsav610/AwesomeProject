@@ -18,7 +18,7 @@ export const BuySellFooter: FC<BuySellFooterProps> = ({
 }) => {
   return (
     <View style={getStyles('flex-row px-12 py-16 gap-4 bg-background border-t border-border')}>
-      <Pressable
+      {/* <Pressable
         onPress={onAlertPress}
         style={getStyles(
           'flex-row px-16 gap-4 rounded-lg justify-center items-center border-2 rounded-full',
@@ -28,7 +28,16 @@ export const BuySellFooter: FC<BuySellFooterProps> = ({
         <Text weight="semibold" size="base">
           {locale?.common?.alert}
         </Text>
-      </Pressable>
+      </Pressable> */}
+
+      <Button
+        title={locale.common.alert}
+        icon={<AlertIcon />}
+        variant={'outline'}
+        shape={'pill'}
+        onPress={onAlertPress}
+        style={getStyles('flex-1')}
+      />
 
       <Button
         title={locale.common.sell}

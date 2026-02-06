@@ -1,5 +1,12 @@
+import { getStyles } from '@styles/getStyles';
 import { FC, ReactNode } from 'react';
-import { KeyboardAvoidingView, Platform, ScrollView, type ViewStyle } from 'react-native';
+import {
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  type ViewStyle,
+} from 'react-native';
 
 interface KeyboardScrollContainerProps {
   children: ReactNode;
@@ -14,7 +21,7 @@ export const KeyboardScrollContainer: FC<KeyboardScrollContainerProps> = ({
 }) => {
   return (
     <KeyboardAvoidingView
-      style={[{ flex: 1 }, style]}
+      style={StyleSheet.flatten([getStyles('flex-1'), style])}
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
     >
       <ScrollView keyboardShouldPersistTaps="handled" contentContainerStyle={contentContainerStyle}>

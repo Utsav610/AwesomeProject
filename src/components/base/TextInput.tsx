@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 
 import { getStyles, theme } from '@styles/index';
-import { Text } from './Text';
+import { Text } from '@components/base';
 
 export interface InputProps extends Omit<React.ComponentProps<typeof RNTextInput>, 'style'> {
   value: string;

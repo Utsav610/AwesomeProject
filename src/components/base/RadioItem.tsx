@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { TouchableOpacity, View } from 'react-native';
 import { Text } from '@components/base';
-import { getStyles } from '@/styles';
-import { Radio, SelectRadio } from '@/assets/icons';
+import { getStyles } from '@styles/getStyles';
+import { Radio, SelectRadio } from '@assets/icons';
 
 interface RadioItemProps {
   label: string;
