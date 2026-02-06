@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { ColorKey, theme } from './theme';
-import { fontSizes, fontWeights } from './typography';
+import { fontSizes } from './typography';
 import { wp, hp } from './scale';
 
 const styles = StyleSheet.create({
@@ -98,6 +98,7 @@ const styles = StyleSheet.create({
   'py-2': { paddingVertical: hp(2) },
   'py-4': { paddingVertical: hp(4) },
   'py-8': { paddingVertical: hp(8) },
+  'py-10': { paddingVertical: hp(10) },
   'py-12': { paddingVertical: hp(12) },
   'py-16': { paddingVertical: hp(16) },
   'py-20': { paddingVertical: hp(20) },
@@ -127,12 +128,37 @@ const styles = StyleSheet.create({
   'rounded-20': { borderRadius: wp(20) },
   'rounded-full': { borderRadius: 9999 },
 
+  /* ---- rounded sides ---- */
+  'rounded-t': {
+    borderTopLeftRadius: wp(12),
+    borderTopRightRadius: wp(12),
+  },
+  'rounded-b': {
+    borderBottomLeftRadius: wp(12),
+    borderBottomRightRadius: wp(12),
+  },
+  'rounded-l': {
+    borderTopLeftRadius: wp(12),
+    borderBottomLeftRadius: wp(12),
+  },
+  'rounded-r': {
+    borderTopRightRadius: wp(12),
+    borderBottomRightRadius: wp(12),
+  },
+
+  /* ---- rounded corners ---- */
+  'rounded-tl': { borderTopLeftRadius: wp(12) },
+  'rounded-tr': { borderTopRightRadius: wp(12) },
+  'rounded-bl': { borderBottomLeftRadius: wp(12) },
+  'rounded-br': { borderBottomRightRadius: wp(12) },
+
   /* ---- layout ---- */
   'flex-1': { flex: 1 },
   'flex-row': { flexDirection: 'row' },
   'flex-col': { flexDirection: 'column' },
   'items-center': { alignItems: 'center' },
   'justify-center': { justifyContent: 'center' },
+  'justify-between': { justifyContent: 'space-between' },
   'self-center': { alignSelf: 'center' },
   'self-start': { alignSelf: 'flex-start' },
   'self-end': { alignSelf: 'flex-end' },
@@ -198,6 +224,17 @@ const styles = StyleSheet.create({
   'border-1': { borderWidth: wp(1) },
   'border-2': { borderWidth: wp(2) },
   'border-4': { borderWidth: wp(4) },
+
+  /* ---- border sides ---- */
+  'border-t': { borderTopWidth: hp(1) },
+  'border-r': { borderRightWidth: wp(1) },
+  'border-b': { borderBottomWidth: hp(1) },
+  'border-l': { borderLeftWidth: wp(1) },
+
+  'border-t-0': { borderTopWidth: 0 },
+  'border-r-0': { borderRightWidth: 0 },
+  'border-b-0': { borderBottomWidth: 0 },
+  'border-l-0': { borderLeftWidth: 0 },
 
   /* ---- gap ---- */
   'gap-0': { gap: wp(0) },
@@ -278,19 +315,38 @@ const styles = StyleSheet.create({
   'overflow-hidden': { overflow: 'hidden' },
   'overflow-visible': { overflow: 'visible' },
 
+  /* ---- shadow ---- */
+  'shadow-overlay': {
+    elevation: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.15,
+    shadowRadius: 12,
+  },
+
   /* ---- position ---- */
   relative: { position: 'relative' },
   absolute: { position: 'absolute' },
 
   /* ---- display ---- */
   hidden: { display: 'none' },
+
+  /* ---- opacity ---- */
+  'opacity-0': { opacity: 0 },
+  'opacity-25': { opacity: 0.25 },
+  'opacity-50': { opacity: 0.5 },
+  'opacity-75': { opacity: 0.75 },
+  'opacity-100': { opacity: 1 },
+
+  /* ---- inset ---- */
+  'inset-0': { top: 0, right: 0, bottom: 0, left: 0 },
 });
 
 /* ================= CACHE ================= */
 
 const cache = new Map<string, any>();
 
-export function getStyles(className: string) {
+export const getStyles = (className: string) => {
   if (cache.has(className)) {
     return cache.get(className);
   }
@@ -302,11 +358,8 @@ export function getStyles(className: string) {
     let style;
 
     /* ---- FONT SIZE ---- */
-    if (fontSizes[token]) {
-      style = fontSizes[token];
-    } else if (fontWeights[token]) {
-      /* ---- FONT WEIGHT ---- */
-      style = { fontWeight: String(fontWeights[token]) };
+    if (fontSizes[token as keyof typeof fontSizes]) {
+      style = fontSizes[token as keyof typeof fontSizes];
     } else if (token.startsWith('bg-')) {
       /* ---- BACKGROUND COLOR ---- */
       const key = token.replace('bg-', '') as ColorKey;
@@ -339,4 +392,4 @@ export function getStyles(className: string) {
 
   cache.set(className, result);
   return result;
-}
+};

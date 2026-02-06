@@ -5,8 +5,8 @@ import {
   createUser,
   updateUser,
   deleteUser,
-} from '@/services/users/users.api';
-import type { User, CreateUserPayload, UpdateUserPayload } from '@/services/users/users.types';
+} from '@services/users/users.api';
+import type { User, CreateUserPayload, UpdateUserPayload } from '@services/users/users.types';
 
 /* ================= QUERY KEYS ================= */
 

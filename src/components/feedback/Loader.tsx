@@ -1,12 +1,12 @@
 import React, { memo } from 'react';
 import { Modal, View, ActivityIndicator } from 'react-native';
-import { getStyles, theme } from '../../styles';
+import { getStyles, theme } from '@styles/index';
 
 type LoaderProps = {
   visible: boolean;
 };
 
-const Loader: React.FC<LoaderProps> = ({ visible }) => {
+export const Loader: React.FC<LoaderProps> = ({ visible }) => {
   return (
     <>
       {visible ? (
@@ -19,5 +19,3 @@ const Loader: React.FC<LoaderProps> = ({ visible }) => {
     </>
   );
 };
-
-export default memo(Loader);

@@ -1,4 +1,4 @@
-import { api } from '@/services/api';
+import { api } from '@services/api';
 import { USERS_ENDPOINTS } from './users.endpoints';
 import type { User, CreateUserPayload, UpdateUserPayload } from './users.types';
 

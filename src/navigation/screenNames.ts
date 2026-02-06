@@ -1,4 +1,5 @@
 export const AUTH_SCREENS = {
+  SPLASH: 'Splash',
   LOGIN: 'Login',
   SIGNUP: 'Signup',
   OTP: 'Otp',

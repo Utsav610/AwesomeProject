@@ -1,6 +1,7 @@
-import { APP_SCREENS, AUTH_SCREENS } from './screenNames';
+import { APP_SCREENS, AUTH_SCREENS } from './ScreenNames';
 
 export type AuthStackParamList = {
+  [AUTH_SCREENS.SPLASH]: undefined;
   [AUTH_SCREENS.LOGIN]: undefined;
 };
 

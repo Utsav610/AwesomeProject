@@ -1,14 +1,16 @@
-import React, { FC, memo } from 'react';
-import { SafeAreaView, SafeAreaViewProps, useSafeAreaInsets } from 'react-native-safe-area-context';
-import { getStyles } from '../../styles';
+import React, { FC } from 'react';
+import { SafeAreaView, SafeAreaViewProps } from 'react-native-safe-area-context';
+import { getStyles } from '@styles/getStyles';
+import { StyleSheet } from 'react-native';
 
-const CommonSafeAreaView: FC<SafeAreaViewProps> = props => {
-  const { bottom, top } = useSafeAreaInsets();
+export const CommonSafeAreaView: FC<SafeAreaViewProps> = ({ children, style, ...props }) => {
   return (
-    <SafeAreaView edges={['top', 'bottom']} {...props} style={[getStyles('flex-1'), props.style]}>
-      {props.children}
+    <SafeAreaView
+      edges={['top', 'bottom']}
+      {...props}
+      style={StyleSheet.flatten([getStyles('flex-1 bg-backgroundDefault'), style])}
+    >
+      {children}
     </SafeAreaView>
   );
 };
-
-export default memo(CommonSafeAreaView);
