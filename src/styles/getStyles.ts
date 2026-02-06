@@ -129,28 +129,34 @@ const styles = StyleSheet.create({
   'rounded-full': { borderRadius: 9999 },
 
   /* ---- rounded sides ---- */
-  'rounded-t': {
+  'rounded-t-12': {
     borderTopLeftRadius: wp(12),
     borderTopRightRadius: wp(12),
   },
-  'rounded-b': {
+
+  'rounded-t-28': {
+    borderTopLeftRadius: wp(28),
+    borderTopRightRadius: wp(28),
+  },
+
+  'rounded-b-12': {
     borderBottomLeftRadius: wp(12),
     borderBottomRightRadius: wp(12),
   },
-  'rounded-l': {
+  'rounded-l-12': {
     borderTopLeftRadius: wp(12),
     borderBottomLeftRadius: wp(12),
   },
-  'rounded-r': {
+  'rounded-r-12': {
     borderTopRightRadius: wp(12),
     borderBottomRightRadius: wp(12),
   },
 
   /* ---- rounded corners ---- */
-  'rounded-tl': { borderTopLeftRadius: wp(12) },
-  'rounded-tr': { borderTopRightRadius: wp(12) },
-  'rounded-bl': { borderBottomLeftRadius: wp(12) },
-  'rounded-br': { borderBottomRightRadius: wp(12) },
+  'rounded-tl-12': { borderTopLeftRadius: wp(12) },
+  'rounded-tr-12': { borderTopRightRadius: wp(12) },
+  'rounded-bl-12': { borderBottomLeftRadius: wp(12) },
+  'rounded-br-12': { borderBottomRightRadius: wp(12) },
 
   /* ---- layout ---- */
   'flex-1': { flex: 1 },
